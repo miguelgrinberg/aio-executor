@@ -14,8 +14,9 @@ async def my_async_function(arg):
 
 with AioExecutor() as aioexec:
     # single invocation
-    aioexec.submit(my_async_function, 'foo')
+    f = aioexec.submit(my_async_function, 'foo')
+    result = f.result()
 
     # multiple concurrent invocations using "map"
-    aioexec.map(my_async_function, ['foo', 'bar', 'baz'])
+    results = aioexec.map(my_async_function, ['foo', 'bar', 'baz'])
 ```
