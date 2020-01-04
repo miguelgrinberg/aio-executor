@@ -1,5 +1,6 @@
 import asyncio
 from concurrent.futures import Executor
+from functools import wraps
 from threading import Thread
 
 
@@ -43,3 +44,14 @@ class AioExecutor(Executor):
         pending = asyncio.all_tasks(loop=self.loop)
         self.loop.run_until_complete(asyncio.gather(*pending))
         self.loop.close()
+
+
+def run_with_asyncio(f):
+    @wraps(f)
+    def wrapped(*args, **kwargs):
+        fut = run_with_asyncio.aio_executor.submit(f, *args, **kwargs)
+        return fut.result()
+
+    if getattr(run_with_asyncio, 'aio_executor', None) is None:
+        run_with_asyncio.aio_executor = AioExecutor()
+    return wrapped
