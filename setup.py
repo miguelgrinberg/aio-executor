@@ -12,7 +12,7 @@ with open('README.md', 'r') as f:
 
 setup(
     name='aio-executor',
-    version='0.1.0',
+    version='0.2.0',
     url='http://github.com/miguelgrinberg/aio-executor/',
     license='MIT',
     author='Miguel Grinberg',
