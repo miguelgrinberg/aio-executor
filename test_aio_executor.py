@@ -1,6 +1,6 @@
 import time
 import unittest
-from aio_executor import AioExecutor
+from aio_executor import AioExecutor, run_with_asyncio
 
 
 async def _func(*args):
@@ -45,6 +45,19 @@ class TestAioExecutor(unittest.TestCase):
         with AioExecutor() as aioexec:
             ret = aioexec.map(_func, ['foo', 'bar'], [1, 2])
             self.assertEqual(list(ret), ['ret:foo,1', 'ret:bar,2'])
+
+
+class TestRunWithAsyncioDecorator(unittest.TestCase):
+    def test_run_with_asyncio_decorator(self):
+        f = run_with_asyncio(_func)
+        g = run_with_asyncio(_func)
+        self.assertNotEqual(f, g)
+        self.assertEqual(f('foo', 'bar'), 'ret:foo,bar')
+        self.assertEqual(g('foo', 'bar'), 'ret:foo,bar')
+        self.assertEqual(f(1), 'ret:1')
+        self.assertEqual(g(1), 'ret:1')
+        self.assertEqual(f(), 'ret:')
+        self.assertEqual(g(), 'ret:')
 
 
 if __name__ == '__main__':
