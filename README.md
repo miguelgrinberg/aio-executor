@@ -40,3 +40,17 @@ How to Install
 ```
 pip install aio-executor
 ```
+
+Other Implementations
+---------------------
+
+The idea of implementing an `Executor` instance based on asyncio is apparently
+not that original. I initially attempted to register this package on PyPI as
+"asyncio-executor" and found that the name was already taken.
+
+Below is the list of fairly similar implementations I know about. If for any
+reason my version does not work for you, be sure to try these others out.
+
+- https://gist.github.com/seglberg/0b4487b57b4fd425c56ad72aba9971be
+- https://github.com/Python-Tools/asyncio-executor
+- https://gist.github.com/vxgmichel/d16e66d1107a369877f6ef7e646ac2e5
