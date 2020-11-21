@@ -1,6 +1,6 @@
 # aio-executor
 
-[![Build Status](https://travis-ci.org/miguelgrinberg/aio-executor.svg?branch=master)](https://travis-ci.org/miguelgrinberg/aio-executor)
+[![Build status](https://github.com/miguelgrinberg/aio-executor/workflows/build/badge.svg)](https://github.com/miguelgrinberg/aio-executor/actions)
 
 A concurrent.futures.Executor implementation that runs asynchronous tasks in an asyncio loop.
 
