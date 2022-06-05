@@ -15,6 +15,7 @@ setup(
     version='0.2.0',
     url='http://github.com/miguelgrinberg/aio-executor/',
     license='MIT',
+    license_files = ['LICENSE'],
     author='Miguel Grinberg',
     author_email='miguel.grinberg@gmail.com',
     description=('A concurrent.futures.Executor implementation that runs '
